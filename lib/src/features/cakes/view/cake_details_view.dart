@@ -1,4 +1,4 @@
-import 'package:cake_it_app/src/features/cake.dart';
+import 'package:cake_it_app/src/features/cakes/models/cake.dart';
 import 'package:flutter/material.dart';
 
 /// Displays detailed information about a cake.
