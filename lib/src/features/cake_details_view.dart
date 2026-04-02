@@ -27,6 +27,36 @@ class CakeDetailsView extends StatelessWidget {
           Center(
             child: Text('${cake.description}'),
           ),
+          const SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: cake.image != null && cake.image!.isNotEmpty
+                  ? Image.network(
+                      cake.image!,
+                      height: 200,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Container(
+                          height: 200,
+                          width: double.infinity,
+                          color: Colors.grey[200],
+                          child: const Icon(Icons.broken_image,
+                              color: Colors.grey, size: 50),
+                        );
+                      },
+                    )
+                  : Container(
+                      height: 200,
+                      width: double.infinity,
+                      color: Colors.grey[200],
+                      child: const Icon(Icons.image_not_supported,
+                          color: Colors.grey, size: 50),
+                    ),
+            ),
+          )
         ],
       ),
     );

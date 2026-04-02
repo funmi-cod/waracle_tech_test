@@ -68,18 +68,28 @@ class _CakeListViewState extends State<CakeListView> {
               title: Text('${cake.title}'),
               subtitle: Text('${cake.description}'),
               leading: CircleAvatar(
-                child: Image.network(
-                  cakes[index].image!,
+                child: ClipOval(
+                  child: cake.image != null && cake.image!.isNotEmpty
+                      ? Image.network(
+                          cake.image!,
+                          width: 60,
+                          height: 60,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) {
+                            return const Icon(Icons.image);
+                          },
+                        )
+                      : const Icon(Icons.image_not_supported),
                 ),
               ),
               onTap: () {
                 Navigator.restorablePushNamed(
                   context,
                   CakeDetailsView.routeName,
-                  arguments: const Cake(
-                    title: 'failed cake',
-                    description: 'soggy bottom',
-                    image: 'https://www.example.com',
+                  arguments: Cake(
+                    title: cake.title,
+                    description: cake.description,
+                    image: cake.image,
                   ).toJson(),
                 );
               });
