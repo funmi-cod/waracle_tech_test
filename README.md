@@ -28,3 +28,9 @@ If you fork the repository, please ensure your fork is private and not visible t
 You may change, rewrite, adapt and improve as much of the app as you like within the constraints above. There is no one right solution, so feel free to impress us!
 
 There is no limit to how long you can take to complete the test, however we suggest it should take around 3 hours. We are not looking for perfection, so feel free to suggest a list of things you would add or improve if you had more time in your NOTES.md file.
+
+
+Improvement: add pagination and cache user theme preference
+
+- Added pagination to cake list fetching for improved performance and smoother user experience
+- Cached user-preferred theme for persistent usage across sessions
